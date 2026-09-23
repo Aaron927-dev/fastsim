@@ -1,0 +1,37 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# COMSOL 模型与恢复文件（体积大、含许可信息，不进仓库）
+*.mph
+*.mph.recovery
+
+# 内部工具产物（安全扫描记录、会话状态），不属于项目内容
+.mimosa/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 已被取代的探索脚本（保留在本机工作目录，但不随仓库发布）
+# 这些脚本建立在错误的边界编号假设上，结论有误，见 bench/README.md B 节
+bench/cartesian_scd_check.py
+bench/scd_boundary_truth.py
+bench/scd_ec_bisect.py
+bench/scd_polygon_check.py
+bench/scd_parallel_plate.py
+bench/scd_render_png.py
+bench/scd_field_map.py
+
+# 内部规划文档（含非公开项目引用）
+docs/COMSOL四基座自研替代可行性评估.md

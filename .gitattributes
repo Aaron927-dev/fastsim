@@ -1,0 +1,12 @@
+# 统一按 LF 存储，避免 Windows/macOS 协作时整文件 diff 噪音
+* text=auto eol=lf
+
+# 二进制文件不做行尾转换
+*.npz binary
+*.png binary
+*.mph binary
+
+# 语言统计口径
+*.md linguist-documentation
+bench/** linguist-documentation
+docs/** linguist-documentation

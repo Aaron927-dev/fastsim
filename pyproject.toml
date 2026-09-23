@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastsim"
+version = "0.1.0"
+description = "降维快速仿真内核：环隙电化学反应器的电场/化学场/流场耦合求解器，COMSOL 的快速前端替代"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "lxy" }]
+keywords = ["simulation", "electrochemistry", "AOP", "CFD", "reaction-engineering", "finite-volume"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+
+# 核心库只依赖 numpy + scipy；COMSOL 与测试都是可选的
+dependencies = [
+  "numpy>=1.23",
+  "scipy>=1.9",
+]
+
+[project.optional-dependencies]
+# 驱动 COMSOL 做交叉校验（需本机已安装 COMSOL，见 bench/_comsol_env.py）
+bench = ["mph>=1.0"]
+dev = ["pytest>=7"]
+
+[project.urls]
+# 若仓库地址不同请改这里
+Homepage = "https://github.com/Aaron927-dev/fastsim"
+Issues = "https://github.com/Aaron927-dev/fastsim/issues"
+
+[tool.setuptools.packages.find]
+include = ["fastsim*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
